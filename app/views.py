@@ -9,6 +9,7 @@ def index():
   view root page function that returns the index page and its data
   '''
   title = 'Catch up real quick news headlines'
+
   all_news = get_news('sports')
   general_news = get_news('general')
   tech_news = get_news('technology')
