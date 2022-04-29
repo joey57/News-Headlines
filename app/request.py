@@ -14,17 +14,18 @@ def get_news(category):
   '''
   function that gets the json response to the url request
   '''
-  get_news_url = base_url.formart(category, api_key)
-  print(get_news_url)
-  with urllib.request.urlopen(get_news_url)as url:
-    get_news_data = url.read()
-    get_news_response = json.loads(get_news_data)
+  get_news_url=base_url.format(category,api_key)
 
-    news_results = None
-    if get_news_response['sources']:
-      news_results_list = get_news_response['sources']
-      news_results = process_results(news_results_list)
-    return news_results
+  with urllib.request.urlopen(get_news_url)as url:
+      get_news_data = url.read()
+      get_news_response = json.loads(get_news_data)
+
+      news_results = None
+
+      if get_news_response['sources']:
+         news_results_list = get_news_response['sources']
+         news_results = process_results(news_results_list)
+      return news_results
 
 def process_results(news_list):
   '''
