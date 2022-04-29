@@ -1,6 +1,3 @@
-from distutils.debug import DEBUG
-
-
 class Config:
   '''
   General configuration parent class
