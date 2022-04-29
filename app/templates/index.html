@@ -1,6 +1,12 @@
 {% extends 'base.html' %} 
 {% import 'macros.html' as macro %} 
 
+<!--Styles block-->
+{% block styles %} 
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}  
+
 {% block content %} 
 
 <div class="container">
@@ -11,6 +17,7 @@
                 {% for all_news in sports %}
                 <li>{{all_news.name}}</li>        
                 <p> --{{all_news.country}} -- </p>
+                <p><a href="/articles/{{all_news.id}}">Read more</a></p>
                 {% endfor %}
             </ul>
     </div>     
@@ -19,7 +26,7 @@
       <ul>
           {% for all_news in technology %}
           <li style="color: #056b5b">{{all_news.name}}</li>
-          <p> --{{all_news.country}} -- </p>
+          <p> --{{all_news.description}} -- </p>
            {% endfor %}
       </ul>
     </div>
@@ -28,7 +35,7 @@
       <ul>
          {% for all_news in general %}
          <li>{{all_news.name}}</li>
-         <p> --{{all_news.country}} -- </p>
+         <p> --{{all_news.description}} -- </p>
          {% endfor %}
       </ul>
 
