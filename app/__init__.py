@@ -1,4 +1,3 @@
-from ensurepip import bootstrap
 from flask import Flask
 from .config import Config, DevConfig
 from flask_bootstrap import Bootstrap
