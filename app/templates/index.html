@@ -1,14 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  {% if title %}
-  <title>{{ title }}</title>
-  {% else %}
-  <title>Welcome to News Headlines</title>
-  {% endif %} 
-</head>
-<body>
+{% import 'macros.html' as macro %} 
+
+{% block content %} 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+            <h1 style="color: #056b5b">Sports News</h1>
+            <ul>
+                {% for all_news in sports %}
+                <li>{{all_news.name}}</li>        
+                <p> --{{all_news.country}} -- </p>
+                {% endfor %}
+            </ul>
+    </div>     
+    <div class="col-md-4">
+      <h1 style="color: #056b5b">Tech News</h1>
+      <ul>
+          {% for all_news in technology %}
+          <li style="color: #056b5b">{{all_news.name}}</li>
+          <p> --{{all_news.country}} -- </p>
+           {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h1 style="color: #056b5b">General news</h1>
+      <ul>
+         {% for all_news in general %}
+         <li>{{all_news.name}}</li>
+         <p> --{{all_news.country}} -- </p>
+         {% endfor %}
+      </ul>
+
+    </div>
+</div>
+</div>
   
-</body>
-</html>
+{% endblock %}
