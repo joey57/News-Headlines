@@ -1,9 +1,10 @@
 from app import app
 import urllib.request,json
-from .models import news
+from .models import news, articles
 import urllib.request,json
 from .models import news
-News =news.News
+News = news.News
+Articles = articles.Articles
 
 # getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -44,4 +45,24 @@ def process_results(news_list):
     news_results.append(news_object)
 
   return news_results
+
+def get_articles(source_id):
+  '''
+  get articles based on articles source id
+  '''
+  get_source_url = articles_url.format(source_id,api_key)
+  with urllib.request.urlopen(get_source_url)as url:
+    get_articles_data = url.read()
+    get_aerticles_response =json.loads(get_articles_data)
+
+    articles_results = None
+    get_aerticles_response['articles']
+    articles_results = process_articles(get_aerticles_response['articles'])
+  return articles_results
+
+def process_articles(this_articles):
+  '''
+  '''  
+      
+
 
