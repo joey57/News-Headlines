@@ -26,7 +26,8 @@
       <ul>
           {% for all_news in technology %}
           <li style="color: #056b5b">{{all_news.name}}</li>
-          <p> --{{all_news.description}} -- </p>
+          <p>{{all_news.description}}</p>
+          <p><a href="/articles/{{ all_news.id}}">Read more</a></p>
            {% endfor %}
       </ul>
     </div>
@@ -35,7 +36,8 @@
       <ul>
          {% for all_news in general %}
          <li>{{all_news.name}}</li>
-         <p> --{{all_news.description}} -- </p>
+         <p>{{all_news.description}}</p>
+         <p><a href="/articles/{{al_news.id}}">Read More</a></p>
          {% endfor %}
       </ul>
 
