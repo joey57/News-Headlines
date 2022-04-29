@@ -35,6 +35,7 @@ def process_results(news_list):
   function that processes the news result and transform them to a list of objects
   '''
   news_results = []
+
   for news_items in news_list:
     name = news_items.get('name')
     author = news_items.get('author')
@@ -64,9 +65,25 @@ def get_articles(source_id):
        
   return articles_results
 
-def process_articles(this_articles):
+def process_articles(articles_list):
   '''
-  '''  
+  function that processes the articles and transform them to a list of objects
+  '''
+  articles_results =[]
+
+  for article_item in articles_list:
+    title = article_item.get('title')
+    description = article_item.get('description')
+    urlToImage = article_item.get('urlToImage')
+    publishedAt = article_item.get('publishedAt')
+    author = article_item.get('author')
+    url = article_item.get('url')
+
+    if urlToImage:
+      article_object = Articles(title, description, publishedAt, author,url)
+      articles_results.append(article_object)
+
+  return articles_results    
       
 
 
