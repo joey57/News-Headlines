@@ -53,12 +53,14 @@ def get_articles(source_id):
   '''
   get articles based on articles source id
   '''
-  get_source_url = articles_url.format(source_id,api_key)
+  get_source_url = articles_url.format(source_id, api_key)
+
   with urllib.request.urlopen(get_source_url)as url:
     get_articles_data = url.read()
     get_articles_response =json.loads(get_articles_data)
 
     articles_results = None
+
     if get_articles_response['articles']:
       articles_results_list = get_articles_response['articles']
       articles_results = process_articles(articles_results_list)
@@ -74,13 +76,13 @@ def process_articles(articles_list):
   for article_item in articles_list:
     title = article_item.get('title')
     description = article_item.get('description')
-    urlToImage = article_item.get('urlToImage')
+    image = article_item.get('image')
     publishedAt = article_item.get('publishedAt')
     author = article_item.get('author')
     url = article_item.get('url')
 
-    if urlToImage:
-      article_object = Articles(title, description, publishedAt, author,url)
+    if image:
+      article_object = Articles(title, description, image, publishedAt, author,url)
       articles_results.append(article_object)
 
   return articles_results    
