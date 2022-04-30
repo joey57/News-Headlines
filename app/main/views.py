@@ -1,9 +1,9 @@
-from flask import render_template
-from app import app
-from app.request import get_articles, get_news
+from flask import render_template,redirect,request,url_for
+from . import main
+from ..request import get_articles, get_news
 
 # views
-@app.route('/')
+@main.route('/')
 def index():
   '''
   view root page function that returns the index page and its data
@@ -19,7 +19,7 @@ def index():
 
   return render_template('index.html',title=title, sports = all_news, general = general_news, technology = tech_news,  business = bus_news, ent = ent_news, science = sci_news)
 
-@app.route('/news/<int:id>')
+@main.route('/news/<int:id>')
 def news(id):
   '''
   view news page function that returns the news details page and its data
@@ -27,7 +27,7 @@ def news(id):
   news = get_news(id)
   return render_template('index.html', news = news)
 
-@app.route('/articles/<source_id>')
+@main.route('/articles/<source_id>')
 def articles(source_id):
   '''
   function that returns articles by source_id
