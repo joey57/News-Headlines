@@ -1,6 +1,7 @@
 from flask import render_template,redirect,request,url_for
 from . import main
 from ..request import get_articles, get_news
+from ..models import Articles, News
 
 # views
 @main.route('/')

@@ -1,5 +1,3 @@
-from email.mime import base
-from app import app 
 import urllib.request,json
 from .models import News, Articles
 

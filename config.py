@@ -1,6 +1,4 @@
 import os
-
-from instance.config import NEWS_API_KEY
 class Config:
   '''
   General configuration parent class
@@ -21,7 +19,7 @@ class DevConfig(Config):
   Development configuration child class
   args config: the parent configuration class with general configuration settings
   '''
-DEBUG = True
+  DEBUG = True
 
 config_options = {
   'development':DevConfig,
